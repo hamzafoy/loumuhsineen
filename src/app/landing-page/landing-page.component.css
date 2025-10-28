@@ -1,0 +1,98 @@
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 800px;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.blurb {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Ticker Tape Styles */
+.ticker-tape {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 1.5rem 0; /* Increased vertical padding */
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.desktop {
+  bottom: 0;
+  display: none;
+}
+
+.mobile {
+  top: 0;
+  display: block;
+}
+
+.ticker-content {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-item {
+  margin: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.ticker-separator {
+  margin: 0 0.5rem;
+  color: #666;
+}
+
+/* Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .desktop {
+    display: block;
+  }
+  
+  .mobile {
+    display: none;
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+  }
+  
+  .blurb {
+    font-size: 1.3rem;
+  }
+}

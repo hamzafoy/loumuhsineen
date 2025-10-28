@@ -1,0 +1,35 @@
+<div class="calendar-container">
+  <h1>Community Calendar</h1>
+  <div class="calendar-wrapper">
+    <full-calendar
+      #calendar
+      [options]="calendarOptions">
+    </full-calendar>
+  </div>
+  
+  <!-- Event Details Modal -->
+  <div class="modal" [class.active]="!!selectedEvent" (click)="closeModal()">
+    <div *ngIf="selectedEvent" class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()">&times;</button>
+      <h2>{{ selectedEvent.title }}</h2>
+      <div *ngIf="selectedEvent.extendedProps?.description" class="event-description">
+        {{ selectedEvent.extendedProps?.description }}
+      </div>
+      <div class="event-details">
+        <p *ngIf="selectedEvent.extendedProps?.location">
+          <i class="fas fa-map-marker-alt"></i> {{ selectedEvent.extendedProps?.location }}
+        </p>
+        <p>
+          <i class="far fa-calendar"></i> 
+          {{ selectedEvent.start | date:'mediumDate' }}
+          <span *ngIf="selectedEvent.end">
+            - {{ selectedEvent.end | date:'mediumDate' }}
+          </span>
+        </p>
+        <p *ngIf="isAllDay(selectedEvent)">
+          <i class="far fa-clock"></i> All day
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

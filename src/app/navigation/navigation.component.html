@@ -1,0 +1,60 @@
+<div class="navigation-container">
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <div class="logo">
+      <a routerLink="/">LouMuhsineen</a>
+    </div>
+    <div class="desktop-links">
+      <a *ngFor="let item of navItems" 
+         [routerLink]="item.path" 
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+        {{ item.label }}
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation -->
+  <div class="mobile-nav" [class.menu-open]="isMobileMenuOpen">
+    <!-- Mobile Menu Button -->
+    <button 
+      class="mobile-menu-button" 
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen"
+      aria-label="Toggle navigation">
+      <span class="hamburger" [class.active]="isMobileMenuOpen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+      <span class="menu-label">Menu</span>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" 
+         (click)="closeMobileMenu()" 
+         [class.active]="isMobileMenuOpen">
+    </div>
+
+    <!-- Mobile Menu Content -->
+    <div class="mobile-menu-content" [class.active]="isMobileMenuOpen">
+      <div class="mobile-menu-header">
+        <div class="logo">LouMuhsineen</div>
+        <button class="close-button" (click)="closeMobileMenu()" aria-label="Close menu">
+          &times;
+        </button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li *ngFor="let item of navItems">
+          <a 
+            [routerLink]="item.path" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMobileMenu()">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
