@@ -1,1 +1,30 @@
+/* Import Islamic-themed fonts */
+@import 'assets/fonts/fonts.css';
+
 /* You can add global styles to this file, and also import other style files */
+
+/* Apply Amiri as default font for body */
+body {
+  font-family: 'Amiri', 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings with Scheherazade for Islamic aesthetic */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Scheherazade', 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+/* Arabic/Islamic content styling */
+.arabic-text {
+  font-family: 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.islamic-heading {
+  font-family: 'Al Noor', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+}

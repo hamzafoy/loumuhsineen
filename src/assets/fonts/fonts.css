@@ -1,0 +1,15 @@
+/* Islamic-themed Arabic Fonts from Google Fonts CDN */
+
+/* Import fonts directly from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Harmattan:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+/* Font family mappings (no need to define @font-face, Google Fonts handles it) */
+
+/* 
+  Available fonts from Google Fonts CDN:
+  
+  - Amiri: Traditional Arabic serif font
+  - Scheherazade New: Elegant serif for headings
+  - Harmattan: Modern Arabic sans-serif
+  - Cairo: Contemporary Arabic typeface
+*/
