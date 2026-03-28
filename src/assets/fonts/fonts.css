@@ -1,15 +1,25 @@
 /* Islamic-themed Arabic Fonts from Google Fonts CDN */
 
 /* Import fonts directly from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Harmattan:wght@400;700&family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Harmattan:wght@400;700&family=Cairo:wght@400;700&family=Markazi+Text:wght@400;700&family=Mirza:wght@400;700&family=Reem+Kufi:wght@400;700&family=Tajawal:wght@400;700&family=Lateef:wght@400;700&family=Katibeh&family=Almarai:wght@400;700&display=swap');
 
 /* Font family mappings (no need to define @font-face, Google Fonts handles it) */
 
 /* 
   Available fonts from Google Fonts CDN:
   
+  ORIGINAL FONTS:
   - Amiri: Traditional Arabic serif font
   - Scheherazade New: Elegant serif for headings
   - Harmattan: Modern Arabic sans-serif
   - Cairo: Contemporary Arabic typeface
+  
+  ADDITIONAL ARABESQUE/ARABIC FONTS:
+  - Markazi Text: Elegant Persian/Arabic serif font
+  - Mirza: Modern Arabic display font with personality
+  - Reem Kufi: Geometric Arabic sans-serif, modern and clean
+  - Tajawal: Contemporary Arabic typeface, highly readable
+  - Lateef: Artistic handwriting-style Arabic font
+  - Katibeh: Stylized Arabic calligraphic font for decorative use
+  - Almarai: Clean, modern Arabic sans-serif for body text
 */

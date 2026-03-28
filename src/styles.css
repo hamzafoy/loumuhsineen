@@ -28,3 +28,31 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   letter-spacing: 0.05em;
 }
+
+.islamic-navigation {
+  font-family: 'Harmattan', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.islamic-ticker {
+  font-family: 'Reem Kufi', sans-serif !important;
+  font-size: 1rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.islamic-landing-header {
+  font-family: 'Markazi Text', serif !important;
+  font-size: 5rem !important;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.islamic-about-header {
+  font-family: 'Markazi Text', serif !important;
+  font-size: 3rem !important;
+  color: #2c3e50;
+}
