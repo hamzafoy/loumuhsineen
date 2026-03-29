@@ -1,7 +1,48 @@
 <app-navigation></app-navigation>
-<div class="directory-container">
-    <h1 class="islamic-landing-header">Member Directory</h1>
-    <div class="directory-grid h-100">
-        
-    </div>
-  </div>
+@if (IsLaptopViewport || IsLargeViewport || IsXLargeViewport) {
+    <div class="directory-container mt-2">
+        <div class="directory-grid h-100">
+            <ngb-carousel [interval]="0" [showNavigationIndicators]="false">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy.png" alt="Random first slide" class="carousel-img-desktop"/>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy.png" alt="Random second slide" class="carousel-img-desktop"/>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy.png" alt="Random third slide" class="carousel-img-desktop"/>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+      </div>
+}
+@else {
+    <div class="directory-container">
+        <h1 class="islamic-landing-header directory-header">Member Directory</h1>
+        <div class="directory-grid h-100">
+            <ngb-carousel [interval]="0">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy_mobile.png" alt="Random first slide" class="carousel-img-mobile"/>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy_mobile.png" alt="Random second slide" class="carousel-img-mobile"/>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/directory_imgs/directory_hamza_foy_mobile.png" alt="Random third slide" class="carousel-img-mobile"/>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+      </div>
+}

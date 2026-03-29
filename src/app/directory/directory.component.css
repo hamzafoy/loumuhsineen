@@ -1,0 +1,38 @@
+.carousel-img-desktop {
+    width: 100%;
+    height: 580px;       /* fixed height */
+    object-fit: contain;   /* or contain */
+}
+
+.carousel-img-mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.directory-header {
+    font-size: 2.5rem !important;
+}
+
+@media (max-width: 959px) {
+
+    ::ng-deep .carousel-control-prev {
+        display: none;
+    }
+
+    ::ng-deep .carousel-control-next {
+        display: none;
+    }
+}
+
+@media (min-width: 960px) {
+
+    ::ng-deep .carousel-control-prev {
+        left: 160px;
+    }
+        
+    ::ng-deep .carousel-control-next {
+    right: 160px;
+    }
+
+}

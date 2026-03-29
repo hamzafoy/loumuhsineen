@@ -20,7 +20,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     
     @media (max-width: 768px) {
       .main-content {
-        padding-top: 60px; /* Adjust for mobile header height */
+        padding-top: 30px; /* Adjust for mobile header height */
         min-height: calc(100vh - 60px);
         padding-bottom: 60px; /* Space for mobile bottom nav */
       }

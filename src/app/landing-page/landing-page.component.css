@@ -90,8 +90,20 @@ h1 {
   h1 {
     font-size: 3.5rem;
   }
-  
+
   .blurb {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+
+  h1 {
+    margin-top: 3rem;
+  }
+
+  .blurb {
+    margin: 0 2rem;
+    font-size: 1.25rem;
   }
 }
