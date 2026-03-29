@@ -22,17 +22,6 @@ export class NavigationComponent {
   ];
 
   constructor() {
-    // Use setTimeout to ensure this runs only in the browser
-    if (typeof window !== 'undefined') {
-      this.checkViewport();
-    }
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    if (typeof window !== 'undefined') {
-      this.checkViewport();
-    }
   }
 
   toggleMobileMenu() {
@@ -43,12 +32,4 @@ export class NavigationComponent {
     this.isMobileMenuOpen = false;
   }
 
-  private checkViewport() {
-    if (typeof window !== 'undefined') {
-      this.isMobileView = window.innerWidth < 768;
-      if (!this.isMobileView) {
-        this.isMobileMenuOpen = false;
-      }
-    }
-  }
 }
