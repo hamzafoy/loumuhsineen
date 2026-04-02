@@ -52,7 +52,12 @@ h1 {
 
 .ticker-content {
   display: inline-block;
-  animation: ticker 45s linear infinite;
+  animation: ticker 35s linear infinite;
+}
+
+.ticker-content-mobile {
+  display: inline-block;
+  animation: ticker 15s linear infinite;
 }
 
 .ticker-item {
@@ -65,6 +70,10 @@ h1 {
 .ticker-separator {
   margin: 0 0.5rem;
   color: #666;
+}
+
+.landing-social-icon {
+  font-size: 2rem;
 }
 
 /* Animation */

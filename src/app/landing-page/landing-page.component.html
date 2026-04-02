@@ -9,6 +9,20 @@
         &amp; most beneficial to our local community. We dedicate ourselves to 'ilm (عِلْم), 'ibadah (عِبَادَة), &amp; 'amaal (عَمَل) & promote sound masculinity
         rooted in the Qu'ran & the Sunnah.
       </p>
+      <div>
+        Follow us on
+        <div class="d-flex justify-content-around">
+          <a href="https://www.instagram.com/muhsineen502/" target="_blank" rel="noopener noreferrer">
+            <fa-icon class="landing-social-icon" [icon]="faInstagram"></fa-icon>
+          </a>
+          <a href="https://www.facebook.com/loumuhsineen/" target="_blank" rel="noopener noreferrer">
+            <fa-icon class="landing-social-icon" [icon]="faFacebook"></fa-icon>
+          </a>
+          <a href="https://www.youtube.com/@MuhsineenLouisville" target="_blank" rel="noopener noreferrer">
+            <fa-icon class="landing-social-icon" [icon]="faYoutube"></fa-icon>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -17,17 +31,17 @@
     <div class="ticker-content islamic-ticker">
       <ng-container *ngFor="let item of tickerItems">
         <span class="ticker-item">{{ item }}</span>
-        <span class="ticker-separator">•</span>
+        <span *ngIf="tickerItems.indexOf(item) < tickerItems.length - 1" class="ticker-separator">•</span>
       </ng-container>
     </div>
   </div>
   
   <!-- Ticker tape for mobile (top) -->
   <div class="ticker-tape mobile">
-    <div class="ticker-content">
+    <div class="ticker-content-mobile islamic-ticker">
       <ng-container *ngFor="let item of tickerItems">
         <span class="ticker-item">{{ item }}</span>
-        <span class="ticker-separator">•</span>
+        <span *ngIf="tickerItems.indexOf(item) < tickerItems.length - 1" class="ticker-separator">•</span>
       </ng-container>
     </div>
   </div>

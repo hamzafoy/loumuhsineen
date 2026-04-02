@@ -6,7 +6,7 @@
     }
 
     .about-us-title {
-      font-size: 3.5rem !important;
+      display: none;
     }
     
     h1 {
@@ -64,6 +64,11 @@
     @media (max-width: 768px) {
       .about-container {
         padding: 1rem;
+      }
+
+      .about-us-title {
+        display: block;
+        font-size: 3.5rem !important;
       }
       
       h1 {
