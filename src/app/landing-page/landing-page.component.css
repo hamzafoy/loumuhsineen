@@ -52,7 +52,7 @@ h1 {
 
 .ticker-content {
   display: inline-block;
-  animation: ticker 30s linear infinite;
+  animation: ticker 45s linear infinite;
 }
 
 .ticker-item {
@@ -70,7 +70,7 @@ h1 {
 /* Animation */
 @keyframes ticker {
   0% {
-    transform: translateX(0);
+    transform: translateX(50%);
   }
   100% {
     transform: translateX(-50%);

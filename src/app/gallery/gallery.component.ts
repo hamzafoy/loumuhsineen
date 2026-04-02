@@ -34,18 +34,21 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private readonly imagesPerPage = 12;
 
     ngOnInit(): void {
-    this.getImages().subscribe((response: any) => {
-        console.log(`API RESPONSE: `, response);
-        if (response && response.resources) {
-        this.images = response.resources.map((item: any, index: number) => ({
-            id: index + 1,
-            url: `https://res.cloudinary.com/dx6zo2qyo/image/upload/v${item.version}/${item.public_id}.${item.format}`,
-            title: item.context?.custom?.Title || 'Louisville Muhsineen'
-        }));
-        } else {
-            console.error('Unexpected API response format:', response);
-        }
-    })
+        this.getImages().subscribe((response: any) => {
+            console.log(`API RESPONSE: `, response);
+            if (response && response.resources) {
+            this.images = response.resources.map((item: any, index: number) => ({
+                id: index + 1,
+                url: `https://res.cloudinary.com/dx6zo2qyo/image/upload/v${item.version}/${item.public_id}.${item.format}`,
+                title: item.context?.custom?.Title || 'Louisville Muhsineen'
+            }));
+            } else {
+                console.error('Unexpected API response format:', response);
+            }
+        })
+        this.getTickerTape().subscribe((response: any) => {
+            console.log(`Ticker Tape API RESPONSE: `, response);
+        });
     }
 
     ngAfterViewInit(): void {
@@ -56,6 +59,8 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     this.destroy$.next();
     this.destroy$.complete();
     }
+
+
 
     private setupInfiniteScroll(): void {
     if (!this.scrollContainer) return;
@@ -110,6 +115,10 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         return this.http.get(
             'https://res.cloudinary.com/dx6zo2qyo/image/list/muhsineen.json'
         );
+    }
+
+    getTickerTape(): Observable<any> {
+        return this.http.get('https://script.google.com/macros/s/AKfycbxLEBrf_gLJI0CS-oF_8N7ACXztTOWMnBc4BFQIfePaPfxe-EMOUn2M0ooz6JlkGIty/exec');
     }
 
 }
