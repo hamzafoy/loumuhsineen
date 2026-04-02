@@ -57,7 +57,7 @@ h1 {
 
 .ticker-content-mobile {
   display: inline-block;
-  animation: ticker 15s linear infinite;
+  animation: ticker 25s linear infinite;
 }
 
 .ticker-item {
@@ -79,10 +79,10 @@ h1 {
 /* Animation */
 @keyframes ticker {
   0% {
-    transform: translateX(50%);
+    transform: translateX(99%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-99%);
   }
 }
 

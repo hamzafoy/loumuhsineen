@@ -35,7 +35,6 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     ngOnInit(): void {
         this.getImages().subscribe((response: any) => {
-            console.log(`API RESPONSE: `, response);
             if (response && response.resources) {
             this.images = response.resources.map((item: any, index: number) => ({
                 id: index + 1,
