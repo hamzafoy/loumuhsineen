@@ -1,7 +1,32 @@
 <app-navigation></app-navigation>
 <div class="gallery-container">
-  <h1 class="islamic-landing-header">Gallery</h1>
-  <div class="gallery-grid">
-    <!-- Gallery items will be dynamically inserted here -->
+  <h1 class="gallery-title islamic-landing-header">Photo Gallery</h1>
+  <div #scrollContainer class="scroll-container">
+    <div class="grid-wrapper">
+      <div class="image-grid" *ngFor="let image of images; trackBy: trackByImageId">
+        <div class="image-tile" (click)="openImageModal(image)">
+          <img 
+            [src]="image.url" 
+            [alt]="image.title"
+            loading="lazy"
+            class="gallery-image"
+          />
+          <div class="image-overlay">
+            <span class="image-title">{{ image.title }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="loading-indicator" *ngIf="isLoading">
+      <mat-spinner diameter="40"></mat-spinner>
+      <span>Loading more images...</span>
+    </div>
   </div>
+  
+  <app-simple-modal 
+    [isOpen]="isModalOpen" 
+    [image]="selectedImage!" 
+    (close)="closeModal()">
+  </app-simple-modal>
 </div>

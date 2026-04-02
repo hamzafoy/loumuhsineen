@@ -1,0 +1,15 @@
+<div class="modal-backdrop" *ngIf="isOpen" (click)="onBackdropClick($event)">
+  <div class="modal-content">
+    <button mat-icon-button class="close-button" (click)="closeModal()">
+      <mat-icon>close</mat-icon>
+    </button>
+    
+    <div class="image-container">
+      <img [src]="image.url" [alt]="image.title" class="modal-image" />
+    </div>
+    
+    <div class="image-info">
+      <h2>{{ image.title }}</h2>
+    </div>
+  </div>
+</div>
