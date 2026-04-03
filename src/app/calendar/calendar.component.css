@@ -5,6 +5,14 @@
   min-height: calc(100vh - 200px);
 }
 
+.calendar-title {
+  display: none;
+}
+
+:host ::ng-deep .fc-scrollgrid-sync-table a {
+  text-decoration: none;
+}
+
 .calendar-header {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -156,6 +164,15 @@ h1 {
   .calendar-container {
     padding: 0.5rem;
   }
+
+  .calendar-title {
+    display: block;
+    font-size: 3.5rem !important;
+  }
+
+  :host ::ng-deep .fc-daygrid-event {
+    overflow-x: hidden;
+  }
   
   :host ::ng-deep {
     .fc {
@@ -265,6 +282,15 @@ h1 {
       padding: 0.1rem 0.2rem;
       margin: 0.1rem 0;
       font-size: 0.75rem;
+      word-break: break-word;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .fc-daygrid-event-frame {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -295,9 +321,12 @@ h1 {
     padding: 2px 5px;
     margin: 2px 0;
     border-radius: 3px;
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-break: break-word;
+    display: block;
+    max-width: 100%;
   }
 
   .cal-week-view .cal-time-events .cal-event {

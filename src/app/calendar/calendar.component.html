@@ -1,5 +1,6 @@
+<app-navigation></app-navigation>
 <div class="calendar-container">
-  <h1>Community Calendar</h1>
+  <h1 class="calendar-title islamic-landing-header">Community Calendar</h1>
   <div class="calendar-wrapper">
     <full-calendar
       #calendar
@@ -21,9 +22,17 @@
         </p>
         <p>
           <i class="far fa-calendar"></i> 
-          {{ selectedEvent.start | date:'mediumDate' }}
-          <span *ngIf="selectedEvent.end">
-            - {{ selectedEvent.end | date:'mediumDate' }}
+          <span *ngIf="isAllDay(selectedEvent)">
+            {{ selectedEvent.start | date:'mediumDate' }}
+            <span *ngIf="selectedEvent.end">
+              - {{ selectedEvent.end | date:'mediumDate' }}
+            </span>
+          </span>
+          <span *ngIf="!isAllDay(selectedEvent)">
+            {{ selectedEvent.start | date:'medium' }}
+            <span *ngIf="selectedEvent.end">
+              - {{ selectedEvent.end | date:'medium' }}
+            </span>
           </span>
         </p>
         <p *ngIf="isAllDay(selectedEvent)">
