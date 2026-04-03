@@ -19,16 +19,17 @@
       </div>
 }
 @else {
+    <!-- Mobile View -->
     <div class="directory-container">
         <h1 class="islamic-landing-header directory-header">Member Directory</h1>
         <div class="directory-grid h-100">
             @if (isLoading) {
                 <mat-progress-spinner [diameter]="100" class="loading-spinner" mode="indeterminate"></mat-progress-spinner>
             } @else {
-            <ngb-carousel [interval]="0" [showNavigationIndicators]="true">
+            <ngb-carousel #mobileCarousel [interval]="0" [showNavigationIndicators]="true" (slid)="onSlide($event)" (keydown.arrowLeft)="mobileCarousel.prev()" (keydown.arrowRight)="mobileCarousel.next()">
                 @for (image of mobileImages; track image) {
                     <ng-template ngbSlide>
-                        <div class="picsum-img-wrapper">
+                        <div class="picsum-img-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
                             <img [src]="image" [alt]="image" class="carousel-img-mobile"/>
                         </div>
                     </ng-template>

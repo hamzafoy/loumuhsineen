@@ -15,6 +15,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+  private touchStartX: number = 0;
+  private touchEndX: number = 0;
 
   constructor(private layoutService: LayoutService, private http: HttpClient) { }
 
@@ -106,6 +108,40 @@ export class DirectoryComponent implements OnInit {
       pivot,
       ...this.quickSortResources(right)
     ];
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  private handleSwipe(): void {
+    const swipeThreshold = 50; // Minimum distance to recognize a swipe
+    const diff = this.touchStartX - this.touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swiped left - show next image
+        const carousel = document.querySelector('ngb-carousel') as any;
+        if (carousel && carousel.next) {
+          carousel.next();
+        }
+      } else {
+        // Swiped right - show previous image
+        const carousel = document.querySelector('ngb-carousel') as any;
+        if (carousel && carousel.prev) {
+          carousel.prev();
+        }
+      }
+    }
+  }
+
+  onSlide(event: any): void {
+    // Optional: Handle slide event if needed
   }
 
 }
