@@ -76,16 +76,6 @@ h1 {
   font-size: 2rem;
 }
 
-/* Animation */
-@keyframes ticker {
-  0% {
-    transform: translateX(99%);
-  }
-  100% {
-    transform: translateX(-99%);
-  }
-}
-
 /* Responsive Design */
 @media (min-width: 768px) {
   .desktop {
@@ -103,6 +93,17 @@ h1 {
   .blurb {
     font-size: 1.3rem;
   }
+
+  /* Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(99%);
+  }
+  100% {
+    transform: translateX(-99%);
+  }
+}
+
 }
 
 @media (max-width: 767px) {
@@ -115,4 +116,15 @@ h1 {
     margin: 0 2rem;
     font-size: 1.25rem;
   }
+
+  /* Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(67%);
+  }
+  100% {
+    transform: translateX(-99%);
+  }
+}
+
 }
