@@ -45,9 +45,6 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 console.error('Unexpected API response format:', response);
             }
         })
-        this.getTickerTape().subscribe((response: any) => {
-            console.log(`Ticker Tape API RESPONSE: `, response);
-        });
     }
 
     ngAfterViewInit(): void {
@@ -114,10 +111,6 @@ export class GalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         return this.http.get(
             'https://res.cloudinary.com/dx6zo2qyo/image/list/muhsineen.json'
         );
-    }
-
-    getTickerTape(): Observable<any> {
-        return this.http.get('https://script.google.com/macros/s/AKfycbxLEBrf_gLJI0CS-oF_8N7ACXztTOWMnBc4BFQIfePaPfxe-EMOUn2M0ooz6JlkGIty/exec');
     }
 
 }
