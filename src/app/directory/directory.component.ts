@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+  @ViewChild('mobileCarousel') mobileCarousel!: NgbCarousel;
+  
   private touchStartX: number = 0;
   private touchEndX: number = 0;
 
@@ -123,19 +125,13 @@ export class DirectoryComponent implements OnInit {
     const swipeThreshold = 50; // Minimum distance to recognize a swipe
     const diff = this.touchStartX - this.touchEndX;
 
-    if (Math.abs(diff) > swipeThreshold) {
+    if (Math.abs(diff) > swipeThreshold && this.mobileCarousel) {
       if (diff > 0) {
         // Swiped left - show next image
-        const carousel = document.querySelector('ngb-carousel') as any;
-        if (carousel && carousel.next) {
-          carousel.next();
-        }
+        this.mobileCarousel.next();
       } else {
         // Swiped right - show previous image
-        const carousel = document.querySelector('ngb-carousel') as any;
-        if (carousel && carousel.prev) {
-          carousel.prev();
-        }
+        this.mobileCarousel.prev();
       }
     }
   }

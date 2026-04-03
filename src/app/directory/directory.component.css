@@ -8,6 +8,20 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.picsum-img-wrapper {
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab;
+}
+
+.picsum-img-wrapper:active {
+    cursor: grabbing;
 }
 
 .directory-header {
