@@ -18,6 +18,7 @@ export class NavigationComponent {
     { path: '/about', label: 'About Us' },
     { path: '/gallery', label: 'Photo Gallery' },
     { path: '/directory', label: 'Member Directory' },
+    { path: '/events', label: 'Public Support' },
     { path: '/calendar', label: 'Calendar' }
   ];
 

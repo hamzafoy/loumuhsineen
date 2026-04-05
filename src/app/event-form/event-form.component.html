@@ -1,0 +1,49 @@
+<app-navigation></app-navigation>
+<div class="event-form-container">
+  <h1 class="event-form-title islamic-landing-header">Community Calendar</h1>
+  <div class="event-form w-100">
+    <div class="event-form-left">
+        <mat-form-field>
+        <mat-label>What is your full name?</mat-label>
+        <input matInput placeholder="Fulaan Abu Fulaan" type="text" [(ngModel)]="newEvent.name" required/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>What is a good phone number?</mat-label>
+        <input matInput placeholder="(502) 555-5555" type="tel" [(ngModel)]="newEvent.phone" required/>
+    </mat-form-field>
+    </div>
+    <div class="event-form-right">
+    <mat-form-field>
+        <mat-label>What is a good email?</mat-label>
+        <input matInput placeholder="fulaan@gmail.com" type="email" [(ngModel)]="newEvent.email"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Would you benefit (خَيْر/faa'iido) from these events?</mat-label>
+        <mat-select multiple [(ngModel)]="newEvent.events">
+            <mat-option value="Current Immigration Policy Discussion">Current Immigration Policy Discussion</mat-option>
+            <mat-option value="Ghusl al-Mayyit Lessons [will work with sisters to have a separate sisters' program]">Ghusl al-Mayyit Lessons [will work with sisters to have a separate sisters' program]</mat-option>
+            <mat-option value="Discussion on Social Media & its Negative Effects [for parents]">Discussion on Social Media & its Negative Effects [for parents]</mat-option>
+            <mat-option value="Discussion on Social Media & its Negative Effects [for children]">Discussion on Social Media & its Negative Effects [for children]</mat-option>
+            <mat-option value="Teaching Converts/Reverts & Da'wah Workshop">Teaching Converts/Reverts & Da'wah Workshop</mat-option>
+            <mat-option value="Discussion on anti-AIPAC/anti-genocide Actions">Discussion on anti-AIPAC/anti-genocide Actions</mat-option>
+            <mat-option value="Discussion on Scams & How to Avoid Scams">Discussion on Scams & How to Avoid Scams</mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+  <div class="w-100">
+        <mat-form-field class="w-100">
+            <mat-label>What other suggestions for public events do you have for local Muslims? <strong>Answer NA if you have no suggestions.</strong></mat-label>
+            <textarea [(ngModel)]="newEvent.suggestion" matInput typeof="text" placeholder="Put your ideas for public events here!" maxlength="5000" required></textarea>
+        </mat-form-field>
+  </div>
+  <button class="event-form-button my-2" mat-flat-button color="accent" [disabled]="newEvent.name.length == 0 || newEvent.phone.length == 0 || newEvent.suggestion.length == 0" (click)="submitEvent()">Submit Event</button>
+  <div class="event-content">
+    <p>
+        If you are an imam, masjid board member, or community leader and want to request
+        the Louisville Muhsineen's support with a program or project, please contact the Ameer
+        Hamza Foy on Whatsapp to discuss. Please contact 1-2 weeks in advance of when you'd like our assistance.
+        We reserve the right to refuse and asking for our support is not a guarantee of our support.
+    </p>
+  </div>
+</div>

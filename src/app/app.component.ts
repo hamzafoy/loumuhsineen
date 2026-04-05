@@ -28,5 +28,5 @@ import { NavigationComponent } from './navigation/navigation.component';
   `]
 })
 export class AppComponent {
-  title = 'lou-muhsineen';
+  title = 'Louisville Muhsineen';
 }

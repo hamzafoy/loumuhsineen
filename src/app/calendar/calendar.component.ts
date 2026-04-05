@@ -66,7 +66,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getCalendarEvents().subscribe((events: any) => {
-      console.log(`RESPONSE FROM CALENDAR API:`, events);
       events.data?.forEach((event: any) => {
         let newEvent: CalendarEvent = {
           backgroundColor: '#1e90ff',
