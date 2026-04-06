@@ -33,6 +33,37 @@
     height: 400px !important;
 }
 
+.name-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  --bs-gutter-x: 0; /* Remove horizontal gutter */
+}
+
+.cell {
+  flex: 1;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.directory-list-header {
+  font-family: 'Markazi Text', serif !important;
+  font-size: 3rem !important;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
+}
+
+.directory-member-panel .mat-expansion-panel-header-description {
+    justify-content: end;
+}
+
 @media (max-width: 959px) {
 
     ::ng-deep .carousel-control-prev {
@@ -41,6 +72,15 @@
 
     ::ng-deep .carousel-control-next {
         display: none;
+    }
+
+    .cell {
+        font-size: 11px;
+    }
+
+    .name-grid {
+        overflow-y: scroll;
+        max-height: 300px;
     }
 
 }

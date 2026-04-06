@@ -16,6 +16,18 @@
             </ngb-carousel>
             }
         </div>
+        <div class="directory-list mt-4">
+            <div class="directory-list-header">
+                Member List
+            </div>
+            <div class="name-grid">
+                <div class="row" *ngFor="let row of nameRows">
+                    <div class="cell" *ngFor="let name of row">
+                    {{ name }}
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
 }
 @else {
@@ -36,6 +48,26 @@
                 }
             </ngb-carousel>
             }
+        </div>
+        <div class="directory-list mt-4">
+            <div class="directory-list-header">
+                Member List
+            </div>
+            <mat-accordion class="directory-member-panel">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>Member List</mat-panel-title>
+                    <mat-panel-description><mat-icon>account_circle</mat-icon></mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="name-grid">
+                        <div class="row" *ngFor="let row of nameRows">
+                            <div class="cell" *ngFor="let name of row">
+                            {{ name }}
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
       </div>
 }
