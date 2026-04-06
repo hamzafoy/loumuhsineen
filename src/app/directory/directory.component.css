@@ -60,6 +60,10 @@
   margin-bottom: 2.5rem;
 }
 
+.directory-member-panel {
+    border-radius: 0;
+}
+
 .directory-member-panel .mat-expansion-panel-header-description {
     justify-content: end;
 }
@@ -93,6 +97,10 @@
         
     ::ng-deep .carousel-control-next {
     right: 160px;
+    }
+
+    .directory-list {
+        padding: 0 4rem;
     }
 
 }
