@@ -9,6 +9,11 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 
+export interface MemberModel {
+  name: string;
+  role: string;
+}
+
 @Component({
   selector: 'app-directory',
   standalone: true,
@@ -47,63 +52,63 @@ export class DirectoryComponent implements OnInit {
   public layout: string = '';
   public isLoading: boolean = true;
 
-  public members: string[] = [
-    "Abaiz Choudhri",
-    "Abdirahman Burqe",
-    "Abdifatah Omar",
-    "Abdulaziz Ahmad",
-    "Abdurahman Bamedhan",
-    "Abdurahman Mahmoud",
-    "Adam Zahaf",
-    "Ahmad Arar",
-    "Ahmad Haji",
-    "Ahmad Khalifa",
-    "Ahmad Qazzaz",
-    "Al-Ameen Salaudeen",
-    "Amine Hamlouchi",
-    "Ammar Fatihullah",
-    "Anwar Adam",
-    "Areeb Lilamwala",
-    "Arshak Naseer",
-    "Asha Peoples",
-    "Badruddin Aden",
-    "Bakar Haythar",
-    "Brandon Nguyen",
-    "Faysal Bulbul",
-    "Greiler Abrahantes",
-    "Hamza Foy",
-    "Hanable Sadiq",
-    "Imraan Siddiqui",
-    "Jonathan Macks",
-    "Kaab Awaan",
-    "Kendrick Jones",
-    "Khalid Zweiqat",
-    "Lamine Kamara",
-    "Logan Schroeder",
-    "Mahad Muhammad",
-    "Mahmud Estes",
-    "Matthew Bahira",
-    "Mohamed Ali",
-    "Mohamed Sharieff",
-    "Mouctar Barrie",
-    "Muhammad Sillah",
-    "Musa Haythar",
-    "Nashaz Naseem",
-    "Omar Jammeh",
-    "Omar Khalifa",
-    "Ramadan Mohamed",
-    "Rommie Kader",
-    "Samir Patel",
-    "Talha Faiz",
-    "Tawfeeq Fields",
-    "Umar Seyal",
-    "Walid Elmajbri",
-    "Ward Abdellah",
-    "Yousef Ismail",
-    "Zane Ghalib"
+  public membership: MemberModel[] = [
+    { name: "Abaiz Choudhri", role: "Supporter" },
+    { name: "Abdirahman Burqe", role: "Core Member" },
+    { name: "Abdifatah Omar", role: "Core Member" },
+    { name: "Abdulaziz Ahmad", role: "Core Member" },
+    { name: "Abdurahman Bamedhan", role: "Core Member" },
+    { name: "Abdurahman Mahmoud", role: "Supporter" },
+    { name: "Adam Zahaf", role: "Core Member" },
+    { name: "Ahmad Arar", role: "Supporter" },
+    { name: "Ahmad Haji", role: "Treasurer" },
+    { name: "Ahmad Khalifa", role: "Core Member" },
+    { name: "Ahmad Qazzaz", role: "Supporter" },
+    { name: "Al-Ameen Salaudeen", role: "Core Member" },
+    { name: "Amine Hamlouchi", role: "Core Member" },
+    { name: "Ammar Fatihullah", role: "Supporter" },
+    { name: "Anwar Adam", role: "Supporter" },
+    { name: "Areeb Lilamwala", role: "Supporter" },
+    { name: "Arshak Naseer", role: "Supporter" },
+    { name: "Asha Peoples", role: "Core Member" },
+    { name: "Badruddin Aden", role: "Supporter" },
+    { name: "Bakar Haythar", role: "Supporter" },
+    { name: "Brandon Nguyen", role: "Supporter" },
+    { name: "Faysal Bulbul", role: "Admin" },
+    { name: "Greiler Abrahantes", role: "Core Member" },
+    { name: "Hamza Foy", role: "Ameer" },
+    { name: "Hanable Sadiq", role: "Supporter" },
+    { name: "Imraan Siddiqui", role: "Supporter" },
+    { name: "Jonathan Macks", role: "Core Member" },
+    { name: "Kaab Awaan", role: "Core Member" },
+    { name: "Kendrick Jones", role: "Supporter" },
+    { name: "Khalid Zweiqat", role: "Supporter" },
+    { name: "Lamine Kamara", role: "Supporter" },
+    { name: "Logan Schroeder", role: "Core Member" },
+    { name: "Mahad Muhammad", role: "Core Member" },
+    { name: "Mahmud Estes", role: "Supporter" },
+    { name: "Matthew Bahira", role: "Supporter" },
+    { name: "Mohamed Ali", role: "Admin" },
+    { name: "Mohamed Sharieff", role: "Supporter" },
+    { name: "Mouctar Barrie", role: "Supporter" },
+    { name: "Muhammad Sillah", role: "Core Member" },
+    { name: "Musa Haythar", role: "Supporter" },
+    { name: "Nashaz Naseem", role: "Core Member" },
+    { name: "Omar Jammeh", role: "Supporter" },
+    { name: "Omar Khalifa", role: "Core Member" },
+    { name: "Ramadan Mohamed", role: "Supporter" },
+    { name: "Rommie Kader", role: "Supporter" },
+    { name: "Samir Patel", role: "Supporter" },
+    { name: "Talha Faiz", role: "Core Member" },
+    { name: "Tawfeeq Fields", role: "Supporter" },
+    { name: "Umar Seyal", role: "Admin" },
+    { name: "Walid Elmajbri", role: "Core Member" },
+    { name: "Ward Abdellah", role: "Core Member" },
+    { name: "Yousef Ismail", role: "Core Member" },
+    { name: "Zane Ghalib", role: "Supporter" }
   ];
 
-  nameRows: string[][] = [];
+  nameRows: MemberModel[][] = [];
   
   public images: string[] = [
     '../assets/directory_imgs/directory_hamza_foy.png',
@@ -119,8 +124,8 @@ export class DirectoryComponent implements OnInit {
 
   ngOnInit(): void {
     const chunkSize = (this.IsLaptopViewport || this.IsLargeViewport || this.IsXLargeViewport) ? 6 : 3;
-    for (let i = 0; i < this.members.length; i += chunkSize) {
-      this.nameRows.push(this.members.slice(i, i + chunkSize));
+    for (let i = 0; i < this.membership.length; i += chunkSize) {
+      this.nameRows.push(this.membership.slice(i, i + chunkSize));
     }
     if (this.IsMobileViewport || this.IsTabletViewport) {
       this.layout = 'mobile';

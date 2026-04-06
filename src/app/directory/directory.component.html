@@ -28,8 +28,9 @@
                     </mat-expansion-panel-header>
                     <div class="name-grid">
                         <div class="row" *ngFor="let row of nameRows">
-                            <div class="cell" *ngFor="let name of row">
-                            {{ name }}
+                            <div class="cell" *ngFor="let member of row">
+                                <p>{{ member.name }}</p>
+                                <p>{{ member.role }}</p>
                             </div>
                         </div>
                     </div>
@@ -69,8 +70,9 @@
                     </mat-expansion-panel-header>
                     <div class="name-grid">
                         <div class="row" *ngFor="let row of nameRows">
-                            <div class="cell" *ngFor="let name of row">
-                            {{ name }}
+                            <div class="cell" *ngFor="let member of row">
+                                <p>{{ member.name }}</p>
+                                <p>{{ member.role }}</p>
                             </div>
                         </div>
                     </div>
