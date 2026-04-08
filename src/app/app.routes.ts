@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'calendar', component: CalendarComponent, title: 'Community Calendar' },
   { path: 'gallery', component: GalleryComponent, title: 'Photo Gallery' },
   { path: 'directory', component: DirectoryComponent, title: 'Member Directory'},
-  { path: 'events', component: EventFormComponent, title: 'Public Support'}
+  { path: 'events', component: EventFormComponent, title: 'Supporting Our Community'}
 ];

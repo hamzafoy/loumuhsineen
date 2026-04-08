@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { DashboardsComponent } from './dashboards/dashboards.component';
 
 export interface IPublicEventFormModel {
     name: string,
@@ -21,7 +22,7 @@ export interface IPublicEventFormModel {
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavigationComponent, MatButtonModule, MatFormFieldModule, MatSelectModule, FormsModule, MatInputModule],
+  imports: [CommonModule, RouterModule, NavigationComponent, DashboardsComponent, MatButtonModule, MatFormFieldModule, MatSelectModule, FormsModule, MatInputModule],
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.css']
 })

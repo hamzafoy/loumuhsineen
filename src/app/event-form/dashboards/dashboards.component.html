@@ -1,0 +1,15 @@
+<div class="dashboards-container">
+    <div class="dashboards-header">
+        Muhsineen Support Dashboards
+    </div>
+    @if (!isLoading) {
+        <highcharts-chart
+        [Highcharts]="Highcharts"
+        [options]="convertsChartOptions"
+        [oneToOne]="oneToOneFlag"
+        [(update)]="updateFlag"
+        />
+    } @else {
+        <mat-progress-spinner [diameter]="150" class="my-3" mode="indeterminate"></mat-progress-spinner>
+    }
+</div>
