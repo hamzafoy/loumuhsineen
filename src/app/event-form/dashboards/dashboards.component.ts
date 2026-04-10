@@ -44,9 +44,15 @@ export class DashboardsComponent implements OnInit, OnDestroy {
         return this.layoutService.isXLarge;
     }
 
+    totalBoxes: number = 0;
+    totalFunds: number = 0;
 
     // Highcharts configuration
     Highcharts: typeof Highcharts = Highcharts;
+    chartRef!: Highcharts.Chart;
+    chartCallback: Highcharts.ChartCallbackFunction = (chart) => {
+        this.chartRef = chart;
+    }
     convertsChartOptions: Highcharts.Options = {
         chart: {
             height: 300,
@@ -64,30 +70,60 @@ export class DashboardsComponent implements OnInit, OnDestroy {
                 enabled: false
             }
         },
-        yAxis: {
-            title: {
-                text: 'Number of Gift Boxes'
+        yAxis: [
+            {
+                title: { text: 'Number of Gift Boxes' }
+            },
+            {
+                visible: false,
+                min: 0,
+                max: 10
             }
-        },
+        ],
         series: [{
             name: 'GLIC',
             data: [],
-            type: 'column'
+            type: 'column',
+            yAxis: 0
         },
         {
             name: 'AlNur',
             data: [],
-            type: 'column'
+            type: 'column',
+            yAxis: 0
         },
         {
             name: 'MCC',
             data: [],
-            type: 'column'
+            type: 'column',
+            yAxis: 0
         },
         {
             name: 'Masjid Bilal South',
             data: [],
-            type: 'column'
+            type: 'column',
+            yAxis: 0
+        },
+        {
+            type: 'column',
+            name: undefined,
+            data: [95], // KPI
+            yAxis: 1,   // 👈 separate axis
+            color: 'transparent',
+            showInLegend: false,
+            enableMouseTracking: false,
+            dataLabels: {
+            enabled: true,
+            align: 'right',
+            verticalAlign: 'top',
+            x: 50,
+            y: -20,
+            formatter: () => {
+                return `<b style="font-size:16px">$${this.totalFunds}</b><br/><i style="font-size:12px">Funds</i><br/><b style="font-size:16px">${this.totalBoxes}</b><br/><i style="font-size:12px">Total Boxes</i>`;
+            },
+            useHTML: true,
+            inside: true
+            }
         }
         ],
         credits: {
@@ -105,6 +141,7 @@ export class DashboardsComponent implements OnInit, OnDestroy {
     updateFlag: boolean = false;
     oneToOneFlag: boolean = true;
     isLoading: boolean = true;
+    
 
     private destroy$ = new Subject<void>();
 
@@ -114,10 +151,19 @@ export class DashboardsComponent implements OnInit, OnDestroy {
             data.value?.forEach((item: any, index: number) => {
                 const value = item[0];
                 const series = this.convertsChartOptions?.series?.[index] as any;
-                if (series) {
+                if (series && index < 4) {
                     series.data.push(value);
+                } else {
+                    index == 4 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
                 }
             })
+            if (this.chartRef) {
+                const kpiSeries = this.chartRef.series[4] as any;
+                if (kpiSeries) {
+                    kpiSeries.update({}, false);
+                    this.chartRef.redraw();
+                }
+            }
             this.isLoading = false;
         });
     }
@@ -128,7 +174,7 @@ export class DashboardsComponent implements OnInit, OnDestroy {
     }
 
     getConvertGiftBoxes(): Observable<any> {
-            return this.http.get('https://script.google.com/macros/s/AKfycbxyE3SIlkklrujOCmXYKn20UrEfx1bNQFR49TCDkZscosp8CuvfKgeAiRCi65RkCZ0/exec');
+            return this.http.get('https://script.google.com/macros/s/AKfycbwMxHI-h2YvU7MwHBArg983G3FDbZ69MmS1psC82jt8Zapj5HfTXO1uPHRvecDXNY35/exec');
     }
 
 }
