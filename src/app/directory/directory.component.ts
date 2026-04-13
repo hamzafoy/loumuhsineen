@@ -124,9 +124,7 @@ export class DirectoryComponent implements OnInit {
 
   ngOnInit(): void {
     const chunkSize = (this.IsLaptopViewport || this.IsLargeViewport || this.IsXLargeViewport) ? 6 : 3;
-    for (let i = 0; i < this.membership.length; i += chunkSize) {
-      this.nameRows.push(this.membership.slice(i, i + chunkSize));
-    }
+    
     if (this.IsMobileViewport || this.IsTabletViewport) {
       this.layout = 'mobile';
     } else {
@@ -149,6 +147,21 @@ export class DirectoryComponent implements OnInit {
               console.error('Unexpected API response format:', response);
             }
         })
+
+    this.getMemberRoster().subscribe((response: any) => {
+      console.log('Member Roster Response:', response);
+      if (response && response.data) {
+        this.membership = response.data || [];
+        for (let i = 0; i < this.membership.length; i += chunkSize) {
+          this.nameRows.push(this.membership.slice(i, i + chunkSize));
+        }
+      } else {
+        for (let i = 0; i < this.membership.length; i += chunkSize) {
+          this.nameRows.push(this.membership.slice(i, i + chunkSize));
+        }
+      }
+    });
+
   }
 
   getImages(layout: string): Observable<any> {
@@ -207,6 +220,10 @@ export class DirectoryComponent implements OnInit {
 
   onSlide(event: any): void {
     // Optional: Handle slide event if needed
+  }
+
+  getMemberRoster(): Observable<any> {
+    return this.http.get('https://script.google.com/macros/s/AKfycbw8pAkgurUiLkgMWHn6bFs_6RP1nV5lwsuev6WmiqkKeNuZqQtCBKFRVeFNWn2LIJykoQ/exec');
   }
 
 }
