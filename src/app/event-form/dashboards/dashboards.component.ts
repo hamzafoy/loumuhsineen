@@ -160,7 +160,7 @@ export class DashboardsComponent implements OnInit, OnDestroy {
                 if (series && index < 5) {
                     series.data.push(value);
                 } else {
-                    index == 5 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
+                    index == 6 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
                 }
             })
             if (this.chartRef) {
