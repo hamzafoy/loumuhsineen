@@ -159,8 +159,10 @@ export class DashboardsComponent implements OnInit, OnDestroy {
                 const series = this.convertsChartOptions?.series?.[index] as any;
                 if (series && index < 5) {
                     series.data.push(value);
-                } else {
-                    index == 6 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
+                } else if (series && index == 5) {
+                    this.totalBoxes = value;
+                } else if (index == 6) {
+                    this.totalFunds = value.toFixed(2);
                 }
             })
             if (this.chartRef) {
@@ -180,7 +182,7 @@ export class DashboardsComponent implements OnInit, OnDestroy {
     }
 
     getConvertGiftBoxes(): Observable<any> {
-            return this.http.get('https://script.google.com/macros/s/AKfycbwMxHI-h2YvU7MwHBArg983G3FDbZ69MmS1psC82jt8Zapj5HfTXO1uPHRvecDXNY35/exec');
+            return this.http.get('https://script.google.com/macros/s/AKfycbxQDwmIW5CpNNMp6UgGTHJ9J6kFAYWFqyFNBcmWR3dp-vOmyRsfwcz9AMJdh3pMF7lt/exec');
     }
 
 }

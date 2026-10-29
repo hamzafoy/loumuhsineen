@@ -38,6 +38,21 @@
     padding-right: 8rem;
 }
 
+.modern-divider {
+  border-top-color: rgba(0, 0, 0, 0.75);
+  border-top-width: 3.5px;
+  border-radius: 25%;
+  margin: 7vh 8vw;
+}
+
+.dashboards-header {
+    font-family: 'Markazi Text', serif !important;
+    font-size: 3rem !important;
+    text-align: center;
+    margin-top: 0.25rem;
+    margin-bottom: 4.25rem;
+}
+
 @media (max-width: 768px) {
     .event-form-container {
         padding: 2rem;
@@ -65,5 +80,21 @@
         margin-top: 2rem;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .modern-divider {
+        border-top-color: rgba(0, 0, 0, 0.75);
+        border-top-width: 3.5px;
+        border-radius: 25%;
+        margin: 7vh 4vw;
+    }
+
+    .dashboards-header {
+        font-family: 'Markazi Text', serif !important;
+        font-size: 3rem !important;
+        text-align: center;
+        margin-top: 0.25rem;
+        margin-bottom: 4.25rem;
+        line-height: 3.5rem !important;
     }
 }
