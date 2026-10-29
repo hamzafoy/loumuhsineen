@@ -105,6 +105,12 @@ export class DashboardsComponent implements OnInit, OnDestroy {
             yAxis: 0
         },
         {
+            name: 'River Road Masjid',
+            data: [],
+            type: 'column',
+            yAxis: 0
+        },
+        {
             type: 'column',
             name: undefined,
             data: [95], // KPI
@@ -151,10 +157,10 @@ export class DashboardsComponent implements OnInit, OnDestroy {
             data.value?.forEach((item: any, index: number) => {
                 const value = item[0];
                 const series = this.convertsChartOptions?.series?.[index] as any;
-                if (series && index < 4) {
+                if (series && index < 5) {
                     series.data.push(value);
                 } else {
-                    index == 4 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
+                    index == 5 ? this.totalBoxes = value : this.totalFunds = value.toFixed(2);
                 }
             })
             if (this.chartRef) {

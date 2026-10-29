@@ -149,7 +149,6 @@ export class DirectoryComponent implements OnInit {
         })
 
     this.getMemberRoster().subscribe((response: any) => {
-      console.log('Member Roster Response:', response);
       if (response && response.data) {
         this.membership = response.data || [];
         for (let i = 0; i < this.membership.length; i += chunkSize) {
